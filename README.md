@@ -4,7 +4,7 @@
 Copilot Adoption Agent – README Document 
 
 Overview 
-The Copilot Adoption Agent (1.1.0.3) is a packaged Copilot Studio solution designed to 
+The Copilot Adoption Agent (1.1.0.4) is a packaged Copilot Studio solution designed to 
 help organizations accelerate adoption of Copilot Chat and Microsoft 365 Copilot 
 through automated, structured communication campaigns. 
 
