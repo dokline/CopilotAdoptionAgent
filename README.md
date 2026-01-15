@@ -91,14 +91,18 @@ ingestion).
 
 
 Importing the Copilot Adoption Agent into Copilot Studio 
-1. Download the Solution Package 
+1. Download the Solution Package from Github:
+      This is done with the green <>Code button, then selecting 'Download Zip'.
+      This will bring all items listed in a zip file named: CopilotAdoptionAgent-mail.zip
+      Extract the content of this zip file, which will not provide the agent file: CopilotAdoptionAgent_1_x_x_x.zip
+      Do NOT EXTRACT the agent zip file....this will be used in zip format.
 Obtain the .zip solution file from this repository’s release or solution folder. 
-2. Open Copilot Studio 
+3. Open Copilot Studio 
 Navigate to: 
 https://copilotstudio.microsoft.com 
-3. Select Your Environment 
+4. Select Your Environment 
 Choose the Dataverse environment where the agent should be installed. 
-4. Import the Solution (Critical Advanced Settings Step) 
+5. Import the Solution (Critical Advanced Settings Step) 
 • Go to … on left panel, and select Solutions 
 • Select Import solution 
 • Upload the .zip file 
@@ -109,7 +113,7 @@ Choose the Dataverse environment where the agent should be installed.
 ***Unchecking this box prevents the 12 Power Automate flows from activating before 
 your mailbox authentication is confirmed. 
 • Proceed with the import! 
-5. Verify Connection Resources (Important) 
+6. Verify Connection Resources (Important) 
 Once the solution appears in your Solutions list: 
 1. Open the Copilot Adoption Agent solution. 
 2. Select Connection Resources. 
