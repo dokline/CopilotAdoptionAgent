@@ -94,8 +94,8 @@ Importing the Copilot Adoption Agent into Copilot Studio
 1. Download the Solution Package from Github:
       This is done with the green <>Code button, then selecting 'Download Zip'.
       This will bring all items listed in a zip file named: CopilotAdoptionAgent-mail.zip
-      Extract the content of this zip file, which will not provide the agent file: CopilotAdoptionAgent_1_x_x_x.zip
-      Do NOT EXTRACT the agent zip file....this will be used in zip format.
+      Extract the content of this downloaded zip file, which will now provide the agent file: **CopilotAdoptionAgent_1_x_x_x.zip**
+      **Do NOT EXTRACT the agent zip file....this will be used in zip format**.
 Obtain the .zip solution file from this repository’s release or solution folder. 
 3. Open Copilot Studio 
 Navigate to: 
