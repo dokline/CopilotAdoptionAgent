@@ -4,6 +4,26 @@ The **Copilot Adoption Agent** is a packaged Copilot Studio solution that helps 
 
 Version **2.1.0.1** builds on the original campaign agent by packaging the experience into a cleaner solution with guided campaign setup, product-specific enablement content, and automated delivery flows for Beginner, Intermediate, and Advanced audiences.
 
+## Download the agent package
+
+Download the latest importable Copilot Studio solution from the **latest GitHub release**:
+
+**[Download CopilotAdoptionAgent_2_1_0_1.zip](https://github.com/dokline/CopilotAdoptionAgent/releases/latest/download/CopilotAdoptionAgent_2_1_0_1.zip)**
+
+Use the release asset above when you want the agent package. GitHub's **Code > Download ZIP** button downloads the repository source files, not just the importable Copilot Studio solution.
+
+Do **not** extract `CopilotAdoptionAgent_2_1_0_1.zip` before importing it into Power Platform or Copilot Studio.
+
+## What's new in v2.1.0.1
+
+| Type | Change |
+| --- | --- |
+| Update | Reduced the package from the original 12-flow structure to six product and skill-level flows. |
+| New | Added timezone selection during campaign setup so delivery aligns to the selected timezone. |
+| Fix | Corrected email formatting issues that affected rendering in classic Outlook. |
+| Update | Refreshed the Copilot Studio agent package and guided setup experience. |
+| Update | Included product-specific enablement guide knowledge sources for Copilot Chat and Microsoft 365 Copilot. |
+
 ## What it does
 
 - Creates a four-week Copilot adoption email campaign.
@@ -15,12 +35,6 @@ Version **2.1.0.1** builds on the original campaign agent by packaging the exper
 - Includes enablement guide knowledge sources so the agent can answer adoption, onboarding, and skilling questions.
 
 ## Included package
-
-Download and import the solution package:
-
-**`CopilotAdoptionAgent_2_1_0_1.zip`**
-
-Do **not** extract this solution zip before importing it into Power Platform or Copilot Studio.
 
 The solution includes:
 
@@ -70,7 +84,7 @@ Recommended admin roles include one of the following:
 
 ## Import instructions
 
-1. Download this repository or download the solution package directly.
+1. Download the latest solution package from the [GitHub Releases page](https://github.com/dokline/CopilotAdoptionAgent/releases/latest).
 2. Locate **`CopilotAdoptionAgent_2_1_0_1.zip`**.
 3. Open [Copilot Studio](https://copilotstudio.microsoft.com) and select the target environment.
 4. Go to **Solutions**.
