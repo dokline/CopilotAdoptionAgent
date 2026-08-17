@@ -8,9 +8,9 @@ Version **2.1.0.1** builds on the original campaign agent by packaging the exper
 
 Download the latest importable Copilot Studio solution package:
 
-**[Download CopilotAdoptionAgent_2_1_0_1.zip](https://github.com/dokline/CopilotAdoptionAgent/raw/main/CopilotAdoptionAgent_2_1_0_1.zip)**
+**[Download CopilotAdoptionAgent_2_1_0_1.zip](https://github.com/dokline/CopilotAdoptionAgent/releases/latest/download/CopilotAdoptionAgent_2_1_0_1.zip)**
 
-Use the direct package link above when you want the agent package. GitHub's **Code > Download ZIP** button downloads the repository source files, not just the importable Copilot Studio solution.
+Use the release asset above when you want the agent package. GitHub's **Code > Download ZIP** button downloads the repository source files, not just the importable Copilot Studio solution.
 
 Do **not** extract `CopilotAdoptionAgent_2_1_0_1.zip` before importing it into Power Platform or Copilot Studio.
 
@@ -84,7 +84,7 @@ Recommended admin roles include one of the following:
 
 ## Import instructions
 
-1. Download the latest solution package from the link at the top of this README.
+1. Download the latest solution package from the [GitHub Releases page](https://github.com/dokline/CopilotAdoptionAgent/releases/latest).
 2. Locate **`CopilotAdoptionAgent_2_1_0_1.zip`**.
 3. Open [Copilot Studio](https://copilotstudio.microsoft.com) and select the target environment.
 4. Go to **Solutions**.
