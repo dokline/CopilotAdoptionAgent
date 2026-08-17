@@ -1,193 +1,164 @@
+# Copilot Adoption Agent
 
-# CopilotAdoptionAgent
+The **Copilot Adoption Agent** is a packaged Copilot Studio solution that helps organizations launch structured adoption campaigns for **Copilot Chat** and **Microsoft 365 Copilot**.
 
-Copilot Adoption Agent – README Document 
+Version **2.1.0.1** builds on the original campaign agent by packaging the experience into a cleaner solution with guided campaign setup, product-specific enablement content, and automated delivery flows for Beginner, Intermediate, and Advanced audiences.
 
-Overview 
-The Copilot Adoption Agent (1.1.0.4) is a packaged Copilot Studio solution designed to 
-help organizations accelerate adoption of Copilot Chat and Microsoft 365 Copilot 
-through automated, structured communication campaigns. 
+## What it does
 
-This agent delivers a complete, ready-to-run 30-day email adoption program, sending 
-users three targeted emails per week that progressively build Copilot skills at the Beginner, 
-Intermediate, and Advanced levels. 
+- Creates a four-week Copilot adoption email campaign.
+- Sends three emails per week for four weeks, for a total of 12 campaign messages.
+- Supports three audience levels: **Beginner**, **Intermediate**, and **Advanced**.
+- Supports two campaign tracks: **Copilot Chat** and **Microsoft 365 Copilot**.
+- Sends messages from the authenticated Outlook mailbox connected during setup.
+- Includes a test mode so admins can validate the full campaign sequence using a minute-based delay before launching production.
+- Includes enablement guide knowledge sources so the agent can answer adoption, onboarding, and skilling questions.
 
-While the agent includes optional enablement guidance for administrators, its primary 
-purpose is to automate adoption communications, not to manage licensing or 
-provisioning. 
+## Included package
 
-What This Agent Does:
-• Automates delivery of a 30-day Copilot adoption email campaign.
-• Sends 3 emails per week (Tuesday, Wednesday, Thursday at 10:00 AM Central 
-Time).
-• Sends emails from the authenticated user’s mailbox who is entering the request 
-in the agent experience (author).
-• Provides prewritten email templates for both Copilot Chat and Microsoft 365 
-Copilot.
-• Supports Beginner, Intermediate, and Advanced learning tracks.
-• Includes test flows to validate environment configuration.
-• Offers optional Q&A for user enablement and adoption recommendations.
-leveraging the Enablement Guides for both products as the knowledge references. 
+Download and import the solution package:
 
-Included in This Solution 
-Core Components 
-• Copilot Studio Agent 
-The conversational interface used to configure campaigns, select product type, 
-choose skill level, and define the target audience. 
-• Prebuilt Prompts & Logic 
-All decision logic, branching, and campaign configuration steps required to run the 
-adoption program. 
-• Email Template Library 
-Fully authored communication templates for: 
-o Beginner 
-o Intermediate 
-o Advanced 
-For both Copilot Chat and Microsoft 365 Copilot. 
-Power Automate (Agent) Flows – 12 Total 
-The solution includes 12 Power Automate flows, grouped into Test and Production sets. 
-6 Test Flows (Environment Validation) 
-These flows allow administrators to validate: 
-• Email formatting and rendering 
-• Template selection 
-• Routing to the target distribution lists 
-• Authentication of the sender’s personal mailbox 
-• Variable timing logic for testing, with entering a delay in minutes to verify emails 
-• Overall readiness before launching a live campaign 
-6 Production Delivery Flows 
-These flows execute the live 30-day campaign: 
-• Deliver emails on Tuesday, Wednesday, Thursday at 10:00 AM Central. This initial 
-delivery will start at the next planned window based on agent engagement.   
-• Use the selected product (Copilot Chat or Microsoft 365 Copilot) 
-• Use the selected skill level (Beginner, Intermediate, Advanced) 
-• Send from the authenticated user’s mailbox 
-• Reminder emails with instructions to track adoption progression  
-• The individual Agent Flows can be reviewed at any time to see the progress of the 
-delivery. 
-Each production flow corresponds to a specific product + skill level combination, keeping 
-campaigns isolated, predictable, and easy to manage. Multiple campaigns can be run at 
-the same time.  All campaigns are independent of each other. 
+**`CopilotAdoptionAgent_2_1_0_1.zip`**
 
+Do **not** extract this solution zip before importing it into Power Platform or Copilot Studio.
 
+The solution includes:
 
-Prerequisites & Required Roles 
+| Component | Purpose |
+| --- | --- |
+| Copilot Studio agent | Conversational setup experience for configuring and starting campaigns. |
+| Adoption Email Scheduler topic | Collects campaign type, audience level, target recipients, timezone, and test or production settings. |
+| Six agent-triggered cloud flows | One flow for each product and skill-level combination. |
+| Enablement guide knowledge sources | Product-specific guidance for Copilot Chat and Microsoft 365 Copilot. |
+| Outlook connector reference | Sends campaign messages from the authenticated sender mailbox. |
 
+## Campaign tracks
 
- Environment Requirements 
-• A Microsoft 365 tenant with Copilot Studio enabled 
-• Access to a Dataverse environment (default or custom) 
-• A user mailbox capable of sending outbound email (Microsoft 365 author’s account) 
-Role Requirements 
-To import and configure the solution, you must have one of the following roles for the target 
-environment that the Copilot Adoption Agent will be ingested into: 
-• Environment Admin 
-• System Administrator 
-• Copilot Studio Administrator 
-• Power Platform Admin 
-To send emails from the author’s account from the agent, the author must also: 
-• Authentication of the Outlook connector to the connector resource (happens during 
-ingestion). 
-• Be licensed for Microsoft 365 Copilot. 
-• Have permission to send to the target distribution list.
+| Product | Beginner | Intermediate | Advanced |
+| --- | --- | --- | --- |
+| Copilot Chat | Included | Included | Included |
+| Microsoft 365 Copilot | Included | Included | Included |
 
+Each campaign runs independently, so multiple campaigns can be configured for different audiences or skill levels.
 
-Importing the Copilot Adoption Agent into Copilot Studio 
-1. Download the Solution Package from Github:
-      This is done with the green <>Code button, then selecting 'Download Zip'.
-      This will bring all items listed in a zip file named: CopilotAdoptionAgent-mail.zip
-      Extract the content of this downloaded zip file, which will now provide the agent file: **CopilotAdoptionAgent_1_x_x_x.zip**
-      **Do NOT EXTRACT the agent zip file....this will be used in zip format**.
-Obtain the .zip solution file from this repository’s release or solution folder. 
-3. Open Copilot Studio 
-Navigate to: 
-https://copilotstudio.microsoft.com 
-4. Select Your Environment 
-Choose the Dataverse environment where the agent should be installed. 
-5. Import the Solution (Critical Advanced Settings Step) 
-• Go to … on left panel, and select Solutions 
-• Select Import solution 
-• Upload the .zip file 
-• When the import wizard appears, expand Advanced Settings 
-• Uncheck the option: 
-“Enable all workflows and connections included in the solution” 
-***This step is critical. 
-***Unchecking this box prevents the 12 Power Automate flows from activating before 
-your mailbox authentication is confirmed. 
-• Proceed with the import! 
-6. Verify Connection Resources (Important) 
-Once the solution appears in your Solutions list: 
-1. Open the Copilot Adoption Agent solution. 
-2. Select Connection Resources. 
-3. Locate the connection named cr_Outlook. 
-4. Ensure author’s account is bound to this connection resource. 
-It should bind automatically, but verifying this ensures the agent will send emails from your 
-mailbox without errors. 
-6. Open the Copilot Adoption Agent 
-Once the installation is completed, the author can visit Inside the agent, the author will 
-work with the chat interface to: 
-• Select the product (Copilot Chat or Microsoft 365 Copilot) 
-• Select the skill level (Beginner, Intermediate, Advanced) 
-• Provide the target distribution list 
-• Confirm the campaign schedule 
-7. Run Test Flows (Recommended) 
-Use the six included test flows to validate: 
-• Email formatting 
-• Routing 
-• Permissions 
-• Template accuracy 
-8. Activate the Production Campaign 
-Once validated, start the production flow for your selected product and skill level. 
-Emails will automatically be sent on the defined cadence for 30 days from author’s 
-mailbox. 
-**While you can choose to formally publish the Copilot Adoption Agent following Microsoft 
-processes (Key concepts - Publish and deploy your agent - Microsoft Copilot Studio | 
-Microsoft Learn), this is technically not required.  If the person ingesting the agent will be 
-the same one operating it, then you can leverage the Test experience in the Agent while in 
-Copilot Studio to issue commands. 
+## Delivery schedule
 
+Production campaigns send email on:
 
-Operating the Copilot Adoption Agent 
-The agent is designed to be simple and command-driven. There are two primary 
-commands you will use: 
-1. TEST start email scheduler 
-Use this command when you want to run the test version of the campaign. 
-This mode allows you to: 
-• Validate email formatting 
-• Confirm routing to the distribution list 
-• Test your mailbox authentication 
-• Control the delay between emails (in minutes) 
-o Example: send test emails every 5 minutes instead of waiting days 
-This is the recommended first step before running a production campaign. 
-2. start email scheduler 
-This command launches the full production 30-day campaign, using: 
-• The selected product (Copilot Chat or Microsoft 365 Copilot) 
-• The selected skill level (Beginner, Intermediate, Advanced) 
-• The configured distribution list (recommended) 
-o Individual emails addresses can be used, but more than one requires a semi
-colon (;) used between addresses to meet Outlook structure. 
-• The fixed schedule of Tue/Wed/Thu at 10:00 AM Central 
-Once started, the campaign runs automatically for 30 days. 
-3. Ask questions or request recommendations 
-Beyond campaign execution, the agent can also answer: 
-• Copilot adoption best practices 
-• Tips for onboarding users 
-• Guidance on communication strategy 
-• General Copilot enablement questions 
-This makes the agent useful both as a campaign engine and an adoption advisor. 
-Email Delivery Notes 
-• Emails are sent from the authenticated author ’s mailbox 
-• Campaigns run independently for each product/skill level 
-• Multiple campaigns may run in parallel 
-• Timing is fixed to Tues/Wed/Thurs at 10:00 AM Central Time 
-Customization Options 
-Given you have an unmanaged Agent, Admins may optionally customize: 
-• Email html templates (within Agent Flows, manually) 
-• Timing and cadence (within Agent Flow, manually) 
-• Branding or formatting (requires internet accessible storage and html editing) 
-• Additional enablement content 
+- Tuesday at 10:00 AM
+- Wednesday at 10:00 AM
+- Thursday at 10:00 AM
 
-Support & Troubleshooting 
-If emails fail to send: 
-• Verify Outlook connector is connected (connectors can become unconnected over 
-time with lack of usage) 
-• Ensure the distribution list accepts automated or bulk senders 
-• Validate that test flows successfully 
+The scheduler uses the timezone selected during campaign setup. Test campaigns use the delay value entered by the admin so the full sequence can be reviewed without waiting for the production cadence.
+
+## Prerequisites
+
+Before importing the solution, make sure you have:
+
+- A Microsoft 365 tenant with Copilot Studio and Power Platform access.
+- A Dataverse environment where the solution can be imported.
+- Permission to import solutions and configure connection references.
+- An Outlook mailbox that can send to the intended users or distribution lists.
+- Permission to send to the selected distribution list or recipient group.
+
+Recommended admin roles include one of the following:
+
+- Environment Admin
+- System Administrator
+- Copilot Studio Administrator
+- Power Platform Administrator
+
+## Import instructions
+
+1. Download this repository or download the solution package directly.
+2. Locate **`CopilotAdoptionAgent_2_1_0_1.zip`**.
+3. Open [Copilot Studio](https://copilotstudio.microsoft.com) and select the target environment.
+4. Go to **Solutions**.
+5. Select **Import solution**.
+6. Upload **`CopilotAdoptionAgent_2_1_0_1.zip`**.
+7. In the import wizard, expand **Advanced settings**.
+8. Clear **Enable all workflows and connections included in the solution**.
+9. Complete the import.
+
+Clearing the workflow auto-enable option is important. It prevents flows from running before the Outlook connection reference has been reviewed and authenticated.
+
+## Configure the Outlook connection
+
+After import:
+
+1. Open the **Copilot Adoption Agent** solution.
+2. Select **Connection references**.
+3. Locate the Outlook connection reference.
+4. Confirm it is connected to the mailbox that should send campaign emails.
+5. Reconnect or update the connection if needed.
+
+Campaign emails are sent from this authenticated mailbox.
+
+## Start a campaign
+
+Open the Copilot Adoption Agent and use:
+
+```text
+start email scheduler
+```
+
+The agent will guide you through:
+
+1. Choosing **Test** or **Production**.
+2. Selecting **Copilot Chat** or **Microsoft 365 Copilot**.
+3. Selecting **Beginner**, **Intermediate**, or **Advanced**.
+4. Entering the recipient email address or distribution list.
+5. Selecting the timezone.
+6. Confirming the campaign details.
+
+For test runs, the agent also asks for the delay in minutes between emails.
+
+## Recommended validation flow
+
+Before sending to a broad audience:
+
+1. Start a **Test** campaign.
+2. Send it to yourself or a small validation group.
+3. Review formatting, links, timing, and sender behavior.
+4. Confirm the distribution list accepts messages from the connected mailbox.
+5. Start the **Production** campaign only after the test sequence is validated.
+
+## Customization
+
+This is an unmanaged solution, so admins can tailor it for their organization. Common customizations include:
+
+- Updating email copy or branding in the flows.
+- Adjusting the production cadence.
+- Adding organization-specific links, learning paths, or internal resources.
+- Extending the agent instructions or knowledge sources.
+- Creating additional tracks for specific personas or business groups.
+
+## Screenshots
+
+Example campaign email previews:
+
+![Copilot Chat intermediate campaign email](Chat-Intermediate-Email.jpeg)
+
+![Copilot Chat advanced campaign email](Chat-Advanced-Email.jpeg)
+
+## Troubleshooting
+
+If emails do not send:
+
+- Confirm the Outlook connection reference is connected.
+- Confirm the sender mailbox can send to the target recipients or distribution list.
+- Check the flow run history for the selected product and skill level.
+- Verify the recipient entry uses a valid email address or distribution list.
+- For multiple individual recipients, separate addresses with semicolons.
+- Run a test campaign first to isolate formatting, connection, or routing issues.
+
+## Notes
+
+- The agent is intended for Copilot adoption communications and enablement guidance.
+- It does not assign licenses, provision users, or manage tenant configuration.
+- Production campaigns run in the background after the selected flow starts.
+- The solution can be customized after import to align with local branding and adoption strategy.
+
+## Disclaimer
+
+This project is independently developed and is not affiliated with, endorsed by, or supported by Microsoft. Microsoft product names are used for identification and informational purposes only.
